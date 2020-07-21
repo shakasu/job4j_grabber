@@ -18,6 +18,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="ProjectId" id="1ezQMs4r7ItiGnR8xUK4f0QUfOJ" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -97,7 +98,14 @@
       <option name="project" value="LOCAL" />
       <updated>1595366264280</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="travis ci">
+      <created>1595366778692</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1595366778692</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -117,14 +125,14 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="808" y="233" width="433" height="268" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1366.728@0.0.1366.728" timestamp="1595360610211" />
-    <state x="337" y="60" key="CommitChangelistDialog2" timestamp="1595366351929">
+    <state x="337" y="60" key="CommitChangelistDialog2" timestamp="1595367528876">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="337" y="60" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1595366351929" />
-    <state x="129" y="64" key="DiffContextDialog" timestamp="1595366349087">
+    <state x="337" y="60" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1595367528876" />
+    <state x="129" y="64" key="DiffContextDialog" timestamp="1595367059065">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="129" y="64" key="DiffContextDialog/0.0.1366.728@0.0.1366.728" timestamp="1595366349087" />
+    <state x="129" y="64" key="DiffContextDialog/0.0.1366.728@0.0.1366.728" timestamp="1595367059065" />
     <state x="521" y="209" key="FileChooserDialogImpl" timestamp="1595363439356">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -149,14 +157,22 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="257" y="2" width="998" height="708" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1595363453278" />
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1595366615243">
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1595367517995">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1595366615243" />
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1595367517995" />
+    <state x="492" y="278" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1595366814451">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="492" y="278" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728@0.0.1366.728" timestamp="1595366814451" />
     <state x="484" y="152" key="git4idea.merge.GitMergeDialog" timestamp="1595366315751">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="484" y="152" key="git4idea.merge.GitMergeDialog/0.0.1366.728@0.0.1366.728" timestamp="1595366315751" />
+    <state x="407" y="152" key="git4idea.merge.GitPullDialog" timestamp="1595367253666">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="407" y="152" key="git4idea.merge.GitPullDialog/0.0.1366.728@0.0.1366.728" timestamp="1595367253666" />
     <state x="497" y="258" key="git4idea.ui.GitResetDialog" timestamp="1595366604603">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
