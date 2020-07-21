@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="3711e90e-824c-46af-ab40-f590f46cd15d" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1ezQMs4r7ItiGnR8xUK4f0QUfOJ" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="ignore.preview.features.used" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../job4j/checkstyle.xml" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="org.infernus.idea.checkstyle.CheckStyleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="ru.job4j" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.HelloTest">
+    <configuration name="HelloTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="job4j_grabber" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ru.job4j.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ru.job4j" />
+      <option name="MAIN_CLASS_NAME" value="ru.job4j.HelloTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="HelloTest.hi" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="job4j_grabber" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ru.job4j.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ru.job4j" />
+      <option name="MAIN_CLASS_NAME" value="ru.job4j.HelloTest" />
+      <option name="METHOD_NAME" value="hi" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.HelloTest" />
+        <item itemvalue="JUnit.HelloTest.hi" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3711e90e-824c-46af-ab40-f590f46cd15d" name="Default Changelist" comment="" />
+      <created>1595321897536</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1595321897536</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="540" y="2" key="#com.intellij.ide.util.ExportDialog" timestamp="1595361420435">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="540" y="2" key="#com.intellij.ide.util.ExportDialog/0.0.1366.728@0.0.1366.728" timestamp="1595361420435" />
+    <state x="808" y="233" width="433" height="268" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1595360610211">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="808" y="233" width="433" height="268" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1366.728@0.0.1366.728" timestamp="1595360610211" />
+    <state x="521" y="209" key="FileChooserDialogImpl" timestamp="1595363439356">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="521" y="209" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1595363439356" />
+    <state width="1323" height="183" key="GridCell.Tab.0.bottom" timestamp="1595364479854">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="183" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1595364479854" />
+    <state width="1323" height="183" key="GridCell.Tab.0.center" timestamp="1595364479853">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="183" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1595364479853" />
+    <state width="1323" height="183" key="GridCell.Tab.0.left" timestamp="1595364479853">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="183" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1595364479853" />
+    <state width="1323" height="183" key="GridCell.Tab.0.right" timestamp="1595364479854">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="183" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1595364479854" />
+    <state x="257" y="2" width="998" height="708" key="SettingsEditor" timestamp="1595363453278">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="257" y="2" width="998" height="708" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1595363453278" />
+  </component>
+</project>
