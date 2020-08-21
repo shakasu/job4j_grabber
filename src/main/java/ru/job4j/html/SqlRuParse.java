@@ -10,7 +10,8 @@ public class SqlRuParse {
         Document doc = Jsoup.connect("https://www.sql.ru/forum/job-offers").get();
         Elements row = doc.select(".postslisttopic");
         Elements dates = doc.select("td.altCol");
-        for (int i = 0; i < row.size() && i < dates.size(); i++) {
+        int di = 1;
+        for (int i = 0; i < row.size() && di < dates.size(); i++) {
             Element href = row.get(i).child(0);
             System.out.printf(
                     "%s%n%s%n%s%n",
@@ -18,6 +19,7 @@ public class SqlRuParse {
                     href.text(),
                     dates.get(i).text()
             );
+            di += 2;
         }
     }
 }
