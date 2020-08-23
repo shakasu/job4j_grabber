@@ -22,7 +22,7 @@ public class AlertRabbit {
     private static final Logger LOG = LoggerFactory.getLogger(AlertRabbit.class.getName());
 
     public static void main(String[] args) {
-        try (InputStream in = AlertRabbit.class.getClassLoader().getResourceAsStream("rabbit.properties")) {
+        try (InputStream in = AlertRabbit.class.getClassLoader().getResourceAsStream("grabber.properties")) {
             Properties config = new Properties();
             config.load(in);
             Class.forName(config.getProperty("driver-class-name"));
@@ -73,7 +73,7 @@ public class AlertRabbit {
         }
 
         @Override
-        public void execute(JobExecutionContext context) throws JobExecutionException {
+        public void execute(JobExecutionContext context) {
             System.out.println("Rabbit runs here ...");
             List<Long> store = (List<Long>) context.getJobDetail().getJobDataMap().get("store");
             store.add(System.currentTimeMillis());
