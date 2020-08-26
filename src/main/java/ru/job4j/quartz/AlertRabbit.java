@@ -60,7 +60,8 @@ public class AlertRabbit {
                     st.executeUpdate();
                 } catch (Exception e) {
                     LOG.error(e.getMessage(), e);
-                }            }
+                }
+            }
         } catch (Exception se) {
             se.printStackTrace();
         }
