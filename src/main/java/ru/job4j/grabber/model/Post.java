@@ -4,10 +4,10 @@ import java.sql.Timestamp;
 
 public class Post {
     private int id;
-    private String name;
-    private String text;
-    private String link;
-    private Timestamp created;
+    private final String name;
+    private final String text;
+    private final String link;
+    private final Timestamp created;
 
     public Post(int id, String name, String text, String link, Timestamp created) {
         this.id = id;
@@ -40,14 +40,14 @@ public class Post {
         return created;
     }
 
-//    @Override
-//    public String toString() {
-//        return "Post{" +
-//                "id='" + id + '\'' +
-//                "name='" + name + '\'' +
-//                ", text='" + text + '\'' +
-//                ", link='" + link + '\'' +
-//                ", created=" + created +
-//                '}';
-//    }
+    @Override
+    public String toString() {
+        return "Post{"
+                + "id='" + id + '\''
+                + "name='" + name + '\''
+                + ", text='" + text + '\''
+                + ", link='" + link + '\''
+                + ", created=" + created
+                + '}';
+    }
 }

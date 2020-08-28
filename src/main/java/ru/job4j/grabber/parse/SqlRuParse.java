@@ -2,9 +2,9 @@ package ru.job4j.grabber.parse;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import ru.job4j.grabber.model.Post;
+import ru.job4j.html.DateToString;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -21,12 +21,12 @@ public class SqlRuParse implements Parse {
     @Override
     public List<Post> list(String link) throws IOException {
         List<Post> result = new ArrayList<>();
-        Document doc = Jsoup.connect(link).get();
-        Elements row = doc.select(".postslisttopic");
-        Elements dates = doc.select("td.altCol");
-        int di = 1;
-        for (int i = 0; i < row.size() && di < dates.size(); i++) {
-            Element href = row.get(i).child(0);
+//        Document doc = Jsoup.connect(link).get();
+//        Elements row = doc.select(".postslisttopic");
+//        Elements dates = doc.select("td.altCol");
+//        int di = 1;
+//        for (int i = 0; i < row.size() && di < dates.size(); i++) {
+//            Element href = row.get(i).child(0);
 //            result.add(
 //              new Post(
 //                      href.attr("href"),
@@ -35,14 +35,14 @@ public class SqlRuParse implements Parse {
 //
 //              )
 //            );
-            System.out.printf(
-                    "%s%n%s%n%s%n",
-                    href.attr("href"),
-                    href.text(),
-                    dates.get(i).text()
-            );
-            di += 2;
-        }
+//            System.out.printf(
+//                    "%s%n%s%n%s%n",
+//                    href.attr("href"),
+//                    href.text(),
+//                    dates.get(i).text()
+//            );
+//            di += 2;
+//        }
         return result;
     }
 
@@ -54,23 +54,19 @@ public class SqlRuParse implements Parse {
      */
     @Override
     public Post detail(String link) throws IOException {
-        Post result = null;
+        DateToString dateToString = new DateToString();
         Document doc = Jsoup.connect(link).get();
-        Elements row = doc.select(".postslisttopic");
-        Elements dates = doc.select("td.altCol");
-        int di = 1;
-        for (int i = 0; i < row.size() && di < dates.size(); i++) {
-            Element href = row.get(i).child(0);
-            System.out.printf(
-                    "%s%n%s%n%s%n",
-                    href.attr("href"),
-                    href.text(),
-                    dates.get(i).text()
-            );
-            di += 2;
+        Elements msgBody = doc.select(".msgBody");
+        Elements messageHeader = doc.select(".messageHeader");
+        Elements date = doc.select(".msgFooter");
+        return new Post(messageHeader.get(1).text(), msgBody.get(1).text(), link,
+                dateToString.transform(date.text().split("\\[")[0]));
+    }
 
-        }
-        return result;
+    public static void main(String[] args) throws IOException {
+        SqlRuParse sqlRuParse = new SqlRuParse();
+        String link = "https://www.sql.ru/forum/1325330/lidy-be-fe-senior-cistemnye-analitiki-qa-i-devops-moskva-do-200t";
+        System.out.println(sqlRuParse.detail(link).toString());
     }
 
 }
