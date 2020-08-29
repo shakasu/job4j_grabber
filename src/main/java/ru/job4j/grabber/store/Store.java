@@ -8,4 +8,6 @@ public interface Store {
     void save(Post post) throws ClassNotFoundException;
 
     List<Post> getAll();
+
+    Post findById(String id);
 }
