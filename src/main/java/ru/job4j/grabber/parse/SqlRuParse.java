@@ -28,10 +28,14 @@ public class SqlRuParse implements Parse {
         for (Element td : row) {
             Element href = td.child(0);
             Element data = td.parent().child(5);
+            String detailLink = href.attr("href");
+            Document docForDetailBody = Jsoup.connect(detailLink).get();
+            Elements msgBody = docForDetailBody.select(".msgBody");
+            String body = msgBody.get(1).text();
             result.add(new Post(
                     href.text(),
-                    href.text(),
-                    href.attr("href"),
+                    body,
+                    detailLink,
                     dateToString.transform(data.text())
             ));
         }
@@ -50,7 +54,10 @@ public class SqlRuParse implements Parse {
         Elements msgBody = doc.select(".msgBody");
         Elements messageHeader = doc.select(".messageHeader");
         Elements date = doc.select(".msgFooter");
-        return new Post(messageHeader.get(1).text(), msgBody.get(1).text(), link,
+        return new Post(
+                messageHeader.get(1).text(),
+                msgBody.get(1).text(),
+                link,
                 dateToString.transform(date.text().split("\\[")[0]));
     }
 
