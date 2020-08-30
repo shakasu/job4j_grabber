@@ -11,10 +11,10 @@ import java.util.GregorianCalendar;
 import java.util.HashMap;
 
 public class DateToString {
-    public Timestamp transform(String strDate) {
-        int year, month, day, hour, minute;
 
-        HashMap<String, Integer> months = new HashMap<>();
+    static private HashMap<String, Integer> months = new HashMap<>();
+
+    public DateToString() {
         months.put("янв", 0);
         months.put("фев", 1);
         months.put("мар", 2);
@@ -27,19 +27,24 @@ public class DateToString {
         months.put("окт", 9);
         months.put("ноя", 10);
         months.put("дек", 11);
+    }
 
+    public Timestamp transform(String strDate) {
+        int year, month, day, hour, minute;
+        String[] time;
         Calendar current = new GregorianCalendar();
-
         if (strDate.split(" ").length == 4) {
             day = Integer.parseInt(strDate.split(" ")[0]);
             month = months.get(strDate.split(" ")[1]);
             year = 100 + Integer.parseInt(strDate.split(" ")[2].split(",")[0]);
-            hour = Integer.parseInt(strDate.split(" ")[3].split(":")[0]);
-            minute = Integer.parseInt(strDate.split(" ")[3].split(":")[1]);
+            time = strDate.split(" ")[3].split(":");
+            hour = Integer.parseInt(time[0]);
+            minute = Integer.parseInt(time[1]);
         } else {
             if (strDate.startsWith("сегодня") || strDate.startsWith("вчера")) {
-                hour = Integer.parseInt(strDate.split(" ")[1].split(":")[0]);
-                minute = Integer.parseInt(strDate.split(" ")[1].split(":")[1]);
+                time = strDate.split(" ")[1].split(":");
+                hour = Integer.parseInt(time[0]);
+                minute = Integer.parseInt(time[1]);
                 if (strDate.startsWith("вчера")) {
                     current.add(Calendar.DATE, -1);
                 }
