@@ -4,6 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ru.job4j.grabber.model.Post;
 
+import java.io.IOException;
 import java.io.InputStream;
 import java.sql.*;
 import java.util.ArrayList;
@@ -20,10 +21,8 @@ public class PsqlStore implements Store, AutoCloseable {
      * The method creates a connection from the property resources,
      * and passes this Connection instance to the global variable cn.
      */
-    public PsqlStore() {
-        try (InputStream in = PsqlStore.class.getClassLoader().getResourceAsStream("grabber.properties")) {
-            Properties config = new Properties();
-            config.load(in);
+    public PsqlStore(Properties config) {
+        try {
             Class.forName(config.getProperty("driver-class-name"));
             cn = DriverManager.getConnection(
                     config.getProperty("url"),
@@ -40,18 +39,25 @@ public class PsqlStore implements Store, AutoCloseable {
      * @param post - data model instance.
      */
     @Override
-    public void save(Post post) {
+    public Post save(Post post) {
         try (PreparedStatement ps = cn.prepareStatement(
-                "insert into post (name, text, link, created) values (?, ?, ?, ?);"
+                "insert into post (name, text, link, created) values (?, ?, ?, ?);",
+                Statement.RETURN_GENERATED_KEYS
         )) {
             ps.setString(1, post.getName());
             ps.setString(2, post.getText());
             ps.setString(3, post.getLink());
             ps.setTimestamp(4, post.getCreated());
-            ps.execute();
+            ps.executeUpdate();
+            try (ResultSet generatedKeys = ps.getGeneratedKeys()) {
+                                if (generatedKeys.next()) {
+                                    post.setId(generatedKeys.getString(1));
+                                }
+                            }
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        return post;
     }
 
     /**
@@ -64,14 +70,14 @@ public class PsqlStore implements Store, AutoCloseable {
         try (Statement st = cn.createStatement();
              ResultSet rs = st.executeQuery("select * from post")) {
             while (rs.next()) {
-                result.add(
-                        new Post(
-                                rs.getInt("id"),
-                                rs.getString("name"),
-                                rs.getString("text"),
-                                rs.getString("link"),
-                                rs.getTimestamp("created")
-                                ));
+                Post post = new Post(
+                        rs.getString("name"),
+                        rs.getString("text"),
+                        rs.getString("link"),
+                        rs.getTimestamp("created")
+                );
+                post.setId(rs.getString("id"));
+                result.add(post);
             }
         } catch (Exception e) {
             LOG.error(e.getMessage(), e);
@@ -92,12 +98,12 @@ public class PsqlStore implements Store, AutoCloseable {
             try (ResultSet rs = st.executeQuery()) {
                 if (rs.next()) {
                     result = new Post(
-                            rs.getInt("id"),
                             rs.getString("name"),
                             rs.getString("text"),
                             rs.getString("link"),
                             rs.getTimestamp("created")
                     );
+                    result.setId(id);
                 }
             }
         } catch (Exception e) {
@@ -113,13 +119,17 @@ public class PsqlStore implements Store, AutoCloseable {
         }
     }
 
-    public static void main(String[] args) {
-        PsqlStore psqlStore = new PsqlStore();
-        Post post = new Post(123, "name", "text", "link", new Timestamp(199751112231L));
-        psqlStore.save(post);
-        for (Post currentPost : psqlStore.getAll()) {
-            System.out.println(currentPost);
+    public static void main(String[] args) throws IOException {
+        try (InputStream in = PsqlStore.class.getClassLoader().getResourceAsStream("grabber.properties")) {
+            Properties config = new Properties();
+            config.load(in);
+            PsqlStore psqlStore = new PsqlStore(config);
+            Post post = new Post("name", "text", "link", new Timestamp(199751112231L));
+            System.out.println(psqlStore.save(post));
+            for (Post currentPost : psqlStore.getAll()) {
+                System.out.println(currentPost);
+            }
+            System.out.println(psqlStore.findById("27"));
         }
-        System.out.println(psqlStore.findById("2"));
     }
 }

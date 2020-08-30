@@ -3,25 +3,21 @@ package ru.job4j.grabber.model;
 import java.sql.Timestamp;
 
 public class Post {
-    private int id;
+    private String id;
     private final String name;
     private final String text;
     private final String link;
     private final Timestamp created;
-
-    public Post(int id, String name, String text, String link, Timestamp created) {
-        this.id = id;
-        this.name = name;
-        this.text = text;
-        this.link = link;
-        this.created = created;
-    }
 
     public Post(String name, String text, String link, Timestamp created) {
         this.name = name;
         this.text = text;
         this.link = link;
         this.created = created;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getName() {
