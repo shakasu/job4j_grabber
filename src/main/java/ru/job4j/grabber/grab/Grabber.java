@@ -47,7 +47,7 @@ public class Grabber implements Grab {
                 .build();
         SimpleScheduleBuilder times = simpleSchedule()
                 .withIntervalInSeconds(Integer.parseInt(cfg.getProperty("time")))
-                .repeatForever();
+                .withRepeatCount(1);
         Trigger trigger = newTrigger()
                 .startNow()
                 .withSchedule(times)
@@ -63,9 +63,16 @@ public class Grabber implements Grab {
             Store store = (Store) map.get("store");
             Parse parse = (Parse) map.get("parse");
             try {
-                for (Post post : parse.list("https://www.sql.ru/forum/job-offers")) {
-                    if (post != null) {
-                        store.save(post);
+                for (int k = 0; k < 6; k++) {
+                    StringBuilder url = new StringBuilder("https://www.sql.ru/forum/job-offers");
+                    if (k > 0) {
+                        url.append("/");
+                        url.append(k);
+                    }
+                    for (Post post : parse.list(url.toString())) {
+                        if (post != null && !post.getName().startsWith("Важно")) {
+                            store.save(post);
+                        }
                     }
                 }
             } catch (Exception e) {

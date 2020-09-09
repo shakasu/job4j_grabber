@@ -33,7 +33,7 @@ public class SqlRuParse implements Parse {
             Elements msgBody = docForDetailBody.select(".msgBody");
             String body = msgBody.get(1).text();
             result.add(new Post(
-                    href.text(),
+                    String.format("%s %s", td.text().split(":")[0], href.text()),
                     body,
                     detailLink,
                     dateToString.transform(data.text())
@@ -65,7 +65,9 @@ public class SqlRuParse implements Parse {
         SqlRuParse sqlRuParse = new SqlRuParse();
         String linkDetail = "https://www.sql.ru/forum/1325330/lidy-be-fe-senior-cistemnye-analitiki-qa-i-devops-moskva-do-200t";
         String link = "https://www.sql.ru/forum/job-offers";
-        System.out.println(sqlRuParse.list(link));
+        for (Post post : sqlRuParse.list(link)) {
+            System.out.println(post);
+        }
         //System.out.println(sqlRuParse.detail(linkDetail).toString());
 
     }
