@@ -47,7 +47,7 @@ public class Grabber implements Grab {
                 .build();
         SimpleScheduleBuilder times = simpleSchedule()
                 .withIntervalInSeconds(Integer.parseInt(cfg.getProperty("time")))
-                .withRepeatCount(1);
+                .repeatForever();
         Trigger trigger = newTrigger()
                 .startNow()
                 .withSchedule(times)
